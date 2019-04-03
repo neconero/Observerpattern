@@ -1,5 +1,5 @@
 package com.company;
 
 public interface Observer {
-    void update(Artiste artiste);
+    void update(Object ob);
 }

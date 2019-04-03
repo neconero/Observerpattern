@@ -7,15 +7,25 @@ import java.util.List;
 
 public class Artiste implements Observable {
     private List<Observer> observer;
-    private String name;
-    private Song song;
+    private ArrayList<Song> song;
+
     public Artiste(){
         observer = new ArrayList<Observer>();
+        song = new ArrayList<Song>();
     }
 
-    public String getArtisteName(){
-        return name;
+    public void addSong(String songName, String artistName){
+        Song track = new Song(songName,artistName);
+        song.add(track);
+        notifyObserver();
     }
+
+    public void getState(){
+        for (Song s: song){
+            System.out.println(s.getSongTitle() + " " + s.getSongArtist());
+        }
+    }
+
     public void register(Observer observer){
         if(observer != null){
             this.observer.add(observer);
@@ -32,11 +42,5 @@ public class Artiste implements Observable {
         }
     }
 
-    public String getSongTitle(){
-        return song.getSongTitle();
-    }
 
-    public void update(){
-        this.notifyObserver();
-    }
 }

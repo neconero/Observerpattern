@@ -2,13 +2,18 @@ package com.company;
 
 public class Song{
     private String title;
-    //private String album;
+    private String artist;
 
-    public Song(String title){
+    public Song(String title, String artist){
         this.title = title;
+        this.artist = artist;
     }
 
-    public String getSongTitle(){
+    protected String getSongTitle(){
         return title;
+    }
+
+    protected String getSongArtist(){
+        return artist;
     }
 }
